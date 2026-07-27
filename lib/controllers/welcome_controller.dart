@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class WelcomeController extends GetxController {
-  String name = "Bidhan";
+  TextEditingController name=TextEditingController();
 }

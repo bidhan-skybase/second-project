@@ -5,7 +5,6 @@ import 'package:second_project/pages/home_page.dart';
 
 class WelcomePage extends StatelessWidget {
   static const routeName = "/welcome-page";
-  // final c = Get.find<WelcomeController>();
   final c = Get.put(WelcomeController());
 
   WelcomePage({super.key});
@@ -17,11 +16,20 @@ class WelcomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text("Welcome page"),
-            Text(c.name),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(controller: c.name),
+            ),
+
             ElevatedButton(
               onPressed: () {
-                Get.toNamed(HomePage.routeName);
+                Get.toNamed(
+                  HomePage.routeName,
+                  arguments: {
+                    //key:value
+                    "name": c.name.text,
+                  },
+                );
               },
               child: Text("Press me"),
             ),
