@@ -16,26 +16,27 @@ class WelcomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(controller: c.name),
-            ),
-
+            ElevatedButton(onPressed: c.storeName, child: Text("Store")),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed(
-                  HomePage.routeName,
-                  arguments: {
-                    //key:value
-                    "name": c.name.text,
-                  },
-                );
+                Get.toNamed(HomePage.routeName);
               },
-              child: Text("Press me"),
+              child: Text("Navigate"),
             ),
           ],
         ),
       ),
     );
+  }
+}
+
+class CustomContainer extends StatelessWidget {
+  final Color containerColor;
+
+  const CustomContainer({required this.containerColor, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(height: 100, width: 100, color: containerColor);
   }
 }

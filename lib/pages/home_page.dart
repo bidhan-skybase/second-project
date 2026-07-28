@@ -14,7 +14,11 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
-          children: [Text("Home page"), Text("The namme is ${c.name}")],
+          children: [
+            Text("Home page"),
+            Text("The namme is ${c.name}"),
+            ElevatedButton(onPressed: c.readStorage, child: Text("Read dataa")),
+          ],
         ),
       ),
     );
